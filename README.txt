@@ -37,4 +37,12 @@ Installation
 ------------
 1. Copy christmas_snow folder to modules directory
 2. At admin/modules enable the module
-3. It's done
+3. You have to comment out this line from snowstorm.js:
+
+	   var imagePath = 'image/snow/'; // relative path to snow images
+
+   should be:
+   
+	    //var imagePath = 'image/snow/'; // relative path to snow images 
+
+4. It's done
