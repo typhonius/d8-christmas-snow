@@ -1,3 +1,10 @@
 name = Christmas Snow
 description =  Adds Christmas Snow to your site. 
 
+
+; Information added by drupal.org packaging script on 2007-12-06
+core = "6.x"
+version = "6.x-1.x-dev"
+project = "christmas_snow"
+datestamp = "1196976605"
+
