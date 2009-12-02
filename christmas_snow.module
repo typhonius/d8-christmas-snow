@@ -18,7 +18,5 @@ function christmas_snow_help($section) {
 
 function christmas_snow_init() {
   $path = drupal_get_path('module', 'christmas_snow');
-  $js = drupal_add_js($path . '/script/snowstorm.js');
-  $data = '<script type="text/javascript">var imagePath = "'.$GLOBALS['base_url'].'/'.$path.'/image/snow/";</script>';
-  drupal_set_html_head($data); 
+  $js = drupal_add_js($path . '/snowstorm.js');
 }
