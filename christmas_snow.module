@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Drupal Module: Christmas Snow
  * Adds Christmas Snow to your site
@@ -16,7 +17,57 @@ function christmas_snow_help($section) {
   }
 }
 
+/*
+ * Initialize the snow!
+ */
 function christmas_snow_init() {
   $path = drupal_get_path('module', 'christmas_snow');
   $js = drupal_add_js($path . '/snowstorm.js');
+  christmas_snow_settings();
 }
+
+/* 
+ * Apply settings for the snow fall.
+ * 
+ * This is what actually puts the settings for the snow onto the page. It finds
+ * the settings and then compiles them into javascript settings that the 
+ * snowStorm.js file understands
+ *
+ */
+function christmas_snow_settings() {
+
+  $results = "snowStorm.flakesMaxActive = " . variable_get(christmas_snow_flakes_max, 96) . ";\n";
+  $results .= "snowStorm.animationInterval = " . variable_get(christmas_snow_animation_int, 33) . ";\n";
+  $results .= "snowStorm.flakeBottom = " . variable_get(christmas_snow_flake_bottom, 'null') . ";\n";
+  $results .= "snowStorm.followMouse = " . variable_get(christmas_snow_follow_mouse, "'true'") . ";\n";
+  $results .= "snowStorm.targetElement = " . variable_get(christmas_snow_target_element, 'null') . ";\n";
+  $results .= "snowStorm.snowColor = " . variable_get(christmas_snow_color, "'#fff'") . ";\n";
+  $results .= "snowStorm.snowCharacter = " . variable_get(christmas_snow_character, "'•'") . ";\n";
+  $results .= "snowStorm.snowStick = " . variable_get(christmas_snow_stick, "'true'") . ";\n";
+  $results .= "snowStorm.useMeltEffect = " . variable_get(christmas_snow_melt, "'true'") . ";\n";
+  $results .= "snowStorm.usePositionFixed = " . variable_get(christmas_snow_position_fixed, "'false'") . ";\n";
+  $results .= "snowStorm.useTwinkleEffect = " . variable_get(christmas_snow_twinkle, "'false'") . ";\n";
+  $results .= "snowStorm.vMaxX = " . variable_get(christmas_snow_vmaxx, 8) . ";\n";
+  $results .= "snowStorm.vMaxY = " . variable_get(christmas_snow_vmaxy, 5) . ";\n";
+
+  $js = drupal_add_js($results, 'inline');
+}
+
+/* 
+ * provides the administration menu item for making settings changes
+ *
+ */
+function christmas_snow_menu() {
+  $items['admin/settings/christmas_snow'] = array(
+    'title' => 'Christmas Snow Settings',
+    'description' => 'Adjust the settings of the snow storm',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('christmas_snow_admin_settings'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'christmas_snow_admin.inc',
+  );
+
+  return $items;
+ }
+
