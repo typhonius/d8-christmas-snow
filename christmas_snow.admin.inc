@@ -1,10 +1,14 @@
 <?php
 
 /**
+ * @file
+ * Settings form.
+ */
+
+/**
+ *
  * Form builder. Configure christmas_snow Storm.
  *
- * @ingroup forms
- * @see system_settings_form().
  */
 function christmas_snow_admin_settings() {
 
@@ -45,7 +49,7 @@ function christmas_snow_admin_settings() {
       '1000' => 'thick',
     ),
     '#description' => t("Limits the 'floor' (pixels) of the snow. If unspecified, snow will 'stick' to the bottom of the browser window and persists through browser resize/scrolling."),
-   );
+  );
 
   $form['christmas_snow_follow_mouse'] = array(
     '#type' => 'select',
@@ -102,15 +106,17 @@ function christmas_snow_admin_settings() {
     '#description' => t("&bull; (•) = bullet. &middot; entity (·) is not used as it's square on some systems etc. Changing this may result in cropping of the character and may require flakeWidth/flakeHeight changes, so be careful."),
   );
 
+  $animation_options = array(
+      '20' => t('fast & smooth - poor performance'),
+      '33' => t('normal speed - moderate performance'),
+      '50' => t('slow & choppy - conservative performance'),
+    );
+
   $form['christmas_snow_animation_int'] = array(
     '#type' => 'select',
     '#title' => t('Performance'),
     '#default_value' => variable_get('christmas_snow_animation_int', 33),
-    '#options' => array(
-      '20'=> t('fast & smooth - poor performance'),
-      '33' => t('normal speed - moderate performance'),
-      '50' => t('slow & choppy - conservative performance'),
-    ),
+    '#options' => $animation_options,
     '#description' => t("Theoretical 'miliseconds per frame' measurement. 20 = fast + smooth, but high CPU use. 50 = more conservative, but slower"),
   );
 
@@ -120,7 +126,7 @@ function christmas_snow_admin_settings() {
 /**
  * Validate admin form submission
  */
-function christmas_snow_admin_settings_validate($form, $form_state) {
+function christmas_snow_admin_settings_validate($form, &$form_state) {
   $limit = $form_state['values']['christmas_snow_flakes_max'];
   if (!is_numeric($limit)) {
     form_set_error('christmas_snow_flakes_max', t('Please enter a number.'));
