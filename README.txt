@@ -2,19 +2,18 @@ CHRISTMAS SNOW MODULE
 ------------------
 
 Christmas Snow Module:
-By: introfini
-Mailto: introfini@gmail.com
+By: introfini & rmiddle
 
 Licensed under the GNU/GPL License
+snowflakes.jo is Licensed under the BSD License see http://www.schillmania.com/projects/snowstorm/
+
 
 ---------------------------------------------------------------------------------------------------------
 
 Pre-Installation
 -----------------
 
-Due to variation in licensing, you will need to download the JavaScript code separately. Please download the file: http://www.schillmania.com/projects/snowstorm/snowstormv14_20091115.zip .Then you will need to copy the file snowstorm.js of this download into the \christmas_snow\ directory of the Christmas Snow module.
-
-The number and speed of the of snowflakes can be set in the snowstorm.js.
+As of 7.x-1.x the snowflakes.js file is included with the plug-in to make instation easier.
 
 You are welcome to hack the module if you want the lights and submit a patch :-)
 
