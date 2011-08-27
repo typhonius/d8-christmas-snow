@@ -41,9 +41,9 @@ function christmas_snow_admin_settings() {
   $form['christmas_snow_flake_bottom'] = array(
     '#type' => 'select',
     '#title' => t('Flakes on the bottom'),
-    '#default_value' => variable_get(christmas_snow_flake_bottom, 'null'),
+    '#default_value' => variable_get('christmas_snow_flake_bottom', "null"),
     '#options' => array(
-      'null' => 'auto',
+      "null" => 'auto',
       '500' => 'shallow',
       '750' => 'medium',
       '1000' => 'thick',
@@ -54,7 +54,7 @@ function christmas_snow_admin_settings() {
   $form['christmas_snow_follow_mouse'] = array(
     '#type' => 'select',
     '#title' => t('Flakes follow mouse'),
-    '#default_value' => variable_get('christmas_snow_follow_mouse', 'null'),
+    '#default_value' => variable_get('christmas_snow_follow_mouse', "'true'"),
     '#options' => array(
       "'true'" => 'Yes',
       "'false'" => 'No',
@@ -65,7 +65,7 @@ function christmas_snow_admin_settings() {
   $form['christmas_snow_melt'] = array(
     '#type' => 'select',
     '#title' => t('Flakes melt away'),
-    '#default_value' => variable_get(christmas_snow_melt, "'true'"),
+    '#default_value' => variable_get('christmas_snow_melt', "'true'"),
     '#options' => array(
       "'true'" => 'Yes',
       "'false'" => 'No',
@@ -76,7 +76,7 @@ function christmas_snow_admin_settings() {
   $form['christmas_snow_stick'] = array(
     '#type' => 'select',
     '#title' => t('Flakes stick'),
-    '#default_value' => variable_get(christmas_snow_stick, "'false'"),
+    '#default_value' => variable_get('christmas_snow_stick', "'false'"),
     '#options' => array(
       "'false'" => 'Yes',
       "'true'" => 'No',
@@ -87,7 +87,7 @@ function christmas_snow_admin_settings() {
   $form['christmas_snow_twinkle'] = array(
     '#type' => 'select',
     '#title' => t('Flakes twinkle'),
-    '#default_value' => variable_get(christmas_snow_twinkle, "'false'"),
+    '#default_value' => variable_get('christmas_snow_twinkle', "'false'"),
     '#options' => array(
       "'false'" => 'Yes',
       "'true'" => 'No',
@@ -98,7 +98,7 @@ function christmas_snow_admin_settings() {
   $form['christmas_snow_character'] = array(
     '#type' => 'select',
     '#title' => t('The character for the flake'),
-    '#default_value' => variable_get(christmas_snow_character, "'•'"),
+    '#default_value' => variable_get('christmas_snow_character', "'•'"),
     '#options' => array(
       "'•'" => "• (bullet)",
       "'·'" => "· (middot)",

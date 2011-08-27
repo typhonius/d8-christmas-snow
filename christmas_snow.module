@@ -22,7 +22,7 @@ function christmas_snow_help($path, $arg) {
 function christmas_snow_init() {
   $path = drupal_get_path('module', 'christmas_snow');
   $js = drupal_add_js($path . '/snowstorm.js');
-  christmas_snow_settings();
+  _christmas_snow_settings();
 }
 
 /*
@@ -33,23 +33,23 @@ function christmas_snow_init() {
  * snowStorm.js file understands
  *
  */
-function christmas_snow_settings() {
+function _christmas_snow_settings() {
 
-  $results = "snowStorm.flakesMaxActive = " . variable_get(christmas_snow_flakes_max, 96) . ";\n";
-  $results .= "snowStorm.animationInterval = " . variable_get(christmas_snow_animation_int, 33) . ";\n";
-  $results .= "snowStorm.flakeBottom = " . variable_get(christmas_snow_flake_bottom, 'null') . ";\n";
-  $results .= "snowStorm.followMouse = " . variable_get(christmas_snow_follow_mouse, "'true'") . ";\n";
-  $results .= "snowStorm.targetElement = " . variable_get(christmas_snow_target_element, 'null') . ";\n";
-  $results .= "snowStorm.snowColor = " . variable_get(christmas_snow_color, "'#fff'") . ";\n";
-  $results .= "snowStorm.snowCharacter = " . variable_get(christmas_snow_character, "'•'") . ";\n";
-  $results .= "snowStorm.snowStick = " . variable_get(christmas_snow_stick, "'true'") . ";\n";
-  $results .= "snowStorm.useMeltEffect = " . variable_get(christmas_snow_melt, "'true'") . ";\n";
-  $results .= "snowStorm.usePositionFixed = " . variable_get(christmas_snow_position_fixed, "'false'") . ";\n";
-  $results .= "snowStorm.useTwinkleEffect = " . variable_get(christmas_snow_twinkle, "'false'") . ";\n";
-  $results .= "snowStorm.vMaxX = " . variable_get(christmas_snow_vmaxx, 8) . ";\n";
-  $results .= "snowStorm.vMaxY = " . variable_get(christmas_snow_vmaxy, 5) . ";\n";
+  $snowStorm = "snowStorm.flakesMaxActive = " . variable_get('christmas_snow_flakes_max', 96) . ";\n";
+  $snowStorm .= "snowStorm.animationInterval = " . variable_get('christmas_snow_animation_int', 33) . ";\n";
+  $snowStorm .= "snowStorm.flakeBottom = " . variable_get('christmas_snow_flake_bottom', "null") . ";\n";
+  $snowStorm .= "snowStorm.followMouse = " . variable_get('christmas_snow_follow_mouse', "'true'") . ";\n";
+  $snowStorm .= "snowStorm.targetElement = " . variable_get('christmas_snow_target_element', "null") . ";\n";
+  $snowStorm .= "snowStorm.snowColor = " . variable_get('christmas_snow_color', "'#fff'") . ";\n";
+  $snowStorm .= "snowStorm.snowCharacter = " . variable_get('christmas_snow_character', "'•'") . ";\n";
+  $snowStorm .= "snowStorm.snowStick = " . variable_get('christmas_snow_stick', "'true'") . ";\n";
+  $snowStorm .= "snowStorm.useMeltEffect = " . variable_get('christmas_snow_melt', "'true'") . ";\n";
+  $snowStorm .= "snowStorm.usePositionFixed = " . variable_get('christmas_snow_position_fixed', "'false'") . ";\n";
+  $snowStorm .= "snowStorm.useTwinkleEffect = " . variable_get('christmas_snow_twinkle', "'false'") . ";\n";
+  $snowStorm .= "snowStorm.vMaxX = " . variable_get('christmas_snow_vmaxx', 8) . ";\n";
+  $snowStorm .= "snowStorm.vMaxY = " . variable_get('christmas_snow_vmaxy', 5) . ";\n";
 
-  $js = drupal_add_js($results, 'inline');
+  $js = drupal_add_js($snowStorm, 'inline');
 }
 
 /*
