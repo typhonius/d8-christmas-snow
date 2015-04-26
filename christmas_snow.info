@@ -1,8 +1,0 @@
-;$Id$
-name = Christmas Snow
-description =  Adds Christmas Snow to your site. 
-core = 7.x
-package = Amusements
-files[] = christmas_snow.module
-files[] = christmas_snow_admin.inc
-files[] = christmas_snow.install

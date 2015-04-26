@@ -1,0 +1,5 @@
+name: 'Christmas Snow'
+type: module
+description: 'Adds Christmas snow to your site.'
+core: 8.x
+configure: christmas_snow.settings
